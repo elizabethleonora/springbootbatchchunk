@@ -1,4 +1,4 @@
-package com.elizabeth.model;
+package com.elizabeth.entity;
 
 import lombok.Data;
 
@@ -13,7 +13,7 @@ public class User {
     @Id
     private Long userId;
 
-    private String name;
+    private String firstName;
 
     private BigDecimal accountBalance;
 

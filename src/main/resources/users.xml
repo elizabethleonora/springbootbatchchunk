@@ -14,7 +14,7 @@
         <record name="user" class="com.elizabeth.entity.User">
             <!-- 'ignore' indicates this field is not bound to a bean property -->
             <field name="recordType" rid="true" literal="D" ignore="true" />
-            <field name="id" />
+            <field name="userId" />
             <field name="firstName" />
             <field name="accountBalance" />
         </record>
