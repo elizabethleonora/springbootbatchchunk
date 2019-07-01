@@ -1,0 +1,31 @@
+<beanio xmlns="http://www.beanio.org/2012/03">
+
+    <!-- 'format' identifies the type of stream -->
+    <stream name="users" format="csv">
+        <!-- 'class' binds the header record to a java.util.HashMap -->
+        <record name="header" class="map">
+            <!-- 'rid' indicates this field is used to identify the record -->
+            <field name="recordType" rid="true" literal="H" />
+            <!-- 'format' can be used to provide Date and Number formats -->
+            <field name="fileDate" type="date" format="yyyy-MM-dd" />
+        </record>
+
+        <!-- Detail records are bound to com.elizabeth.entity.User -->
+        <record name="user" class="com.elizabeth.entity.User">
+            <!-- 'ignore' indicates this field is not bound to a bean property -->
+            <field name="recordType" rid="true" literal="D" ignore="true" />
+            <field name="id" />
+            <field name="firstName" />
+            <field name="accountBalance" />
+        </record>
+
+        <!-- 'target' binds the trailer record to the Integer record count field -->
+        <record name="trailer" target="recordCount">
+            <!-- 'literal' is used to define constant values -->
+            <field name="recordType" rid="true" literal="T" />
+            <!-- 'type' can be declared where bean introspection is not possible -->
+            <field name="recordCount" type="int" />
+        </record>
+
+    </stream>
+</beanio>
