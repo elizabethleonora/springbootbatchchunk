@@ -15,9 +15,9 @@ import org.springframework.core.io.Resource;
 import java.io.File;
 import java.util.Map;
 
-public class Reader implements ItemReader<User> {
+public class UserReader implements ItemReader<User> {
 
-    public Reader(final @Value("input.file") Resource resource) {
+    public UserReader(final @Value("input.file") Resource resource) {
         super();
 //        setResource
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
@@ -37,7 +37,7 @@ public class Reader implements ItemReader<User> {
 
         // use a StreamFactory to create a BeanReader
 //        BeanReader in = factory.createReader("user", new File("users.csv"));
-        BeanReader in = factory.createReader("users", new File(Reader.class.getClassLoader().getResource("users.csv").getFile()));
+        BeanReader in = factory.createReader("users", new File(UserReader.class.getClassLoader().getResource("users.csv").getFile()));
         BeanWriter out = factory.createWriter("users", new File("src/main/resources/output.csv"));
 
         Object record = null;

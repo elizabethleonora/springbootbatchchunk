@@ -7,9 +7,9 @@ import org.springframework.batch.item.ItemProcessor;
 
 import java.math.BigDecimal;
 
-public class Processor implements ItemProcessor<User, User> {
+public class UserProcessor implements ItemProcessor<User, User> {
 
-    private static final Logger log = LoggerFactory.getLogger(Processor.class);
+    private static final Logger log = LoggerFactory.getLogger(UserProcessor.class);
 
     public User process(User user) throws Exception {
         final Long userId = user.getUserId();
